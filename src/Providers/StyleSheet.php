@@ -77,24 +77,7 @@ class StyleSheet extends BaseProvider implements MinifyInterface
         $folder             = str_replace(public_path(), '', $file);
         $folder             = str_replace(basename($folder), '', $folder);
         $content            = file_get_contents($file);
-        $contentReplace     = [];
-        $contentReplaceWith = [];
-        preg_match_all('/url\(([\s])?([\"|\'])?(.*?)([\"|\'])?([\s])?\)/i', $content, $matches, PREG_PATTERN_ORDER);
-        if (!count($matches)) {
-            return $content;
-        }
-        foreach ($matches[0] as $match) {
-            if (strpos($match, "'") != false) {
-                $contentReplace[]     = $match;
-                $contentReplaceWith[] = str_replace('url(\'', 'url(\''.$folder, $match);
-            } elseif (strpos($match, '"') !== false) {
-                $contentReplace[]     = $match;
-                $contentReplaceWith[] = str_replace('url("', 'url("'.$folder, $match);
-            } else {
-                $contentReplace[]     = $match;
-                $contentReplaceWith[] = str_replace('url(', 'url('.$folder, $match);
-            }
-        }
-        return str_replace($contentReplace, $contentReplaceWith, $content);
+        
+        return $content;
     }
 }
