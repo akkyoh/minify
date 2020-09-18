@@ -1,5 +1,5 @@
 {
-  "name": "devfactory/minify",
+  "name": "akkyoh/minify",
   "keywords": ["minify", "laravel5"],
   "description": "A package for minifying styles and javascript for laravel 5 ",
   "license": "MIT",
